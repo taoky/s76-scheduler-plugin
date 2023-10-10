@@ -19,12 +19,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-const GETTEXT_DOMAIN = 's76-scheduler-plugin';
 
-const { GObject, Gio, GLib, St } = imports.gi;
+import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const Main = imports.ui.main;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const SchedulerInterface = '<node>\
 <interface name="com.system76.Scheduler"> \
@@ -45,11 +44,9 @@ const SchedProxy = new SchedulerProxy(
 let foreground = 0;
 let sourceIds = [];
 
-class Extension {
+export default class S76Extension {
     constructor(uuid) {
         this._uuid = uuid;
-
-        ExtensionUtils.initTranslations(GETTEXT_DOMAIN);
     }
 
     enable() {        
@@ -98,8 +95,4 @@ class Extension {
             GLib.Source.remove(idleId);
         }
     }
-}
-
-function init(meta) {
-    return new Extension(meta.uuid);
 }

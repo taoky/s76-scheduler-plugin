@@ -4,11 +4,5 @@
   "uuid": "s76-scheduler@mattjakeman.com",
   "version": 5,
   "url": "https://github.com/mjakeman/s76-scheduler-plugin/",
-  "shell-version": [
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
-  ]
+  "shell-version": ["45"]
 }
